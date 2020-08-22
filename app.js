@@ -1,9 +1,3 @@
-/*
-Things to do:
-- Generate question mark picture before result picture show up.
-- To have a restart button
-*/
-
 let userChosen;
 let computerChosen;
 let result;
@@ -11,8 +5,8 @@ const displayResult = document.getElementById("result");
 const computerChoice = document.getElementById("computer-choice");
 const userChoice = document.getElementById("user-choice");
 const possibleChoices = document.querySelectorAll(".choices");
-
-const randomNumber = Math.round(Math.random() * 3);
+const restart = document.getElementById("restart");
+const randomNumber = Math.ceil(Math.random() * 3);
 
 //Get user choice
 possibleChoices.forEach((possibleChoice) =>
@@ -20,22 +14,29 @@ possibleChoices.forEach((possibleChoice) =>
     userChosen = element.target.id;
     generateComputerChoice();
     results();
-    userChoice.src = chosenPictures(userChosen);
-    computerChoice.src = chosenPictures(computerChosen);
+    userChoice.src = chosenPicture(userChosen);
+    computerChoice.src = chosenPicture(computerChosen);
     displayResult.innerText = result;
   })
 );
 
-function chosenPictures(choice) {
+//Get restart button to refresh the page
+restart.addEventListener("click", () => {
+  location.reload(false);
+});
+
+//Assign picture of chosen choice
+function chosenPicture(choice) {
   return `images/${choice}.png`;
 }
 
+//Generate random computer choice
 function generateComputerChoice() {
   if (randomNumber === 1) {
     return (computerChosen = "rock");
   } else if (randomNumber === 2) {
     return (computerChosen = "paper");
-  } else if (computerChosen === "rock") {
+  } else if (randomNumber === 3) {
     return (computerChosen = "scissors");
   }
 }
