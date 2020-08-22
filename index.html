@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Rock-Paper-Scissors</title>
-</head>
-<body>
-  <h1>Welcome to my Rock-Paper-Scissors game!</h1>
-  <h2>Computer Choice:</h2>
-  <h2 id:"computer-choice"></h2>
-  <h2>Your Choice:</h2>
-  <h2 id:"user-choice"></h2>
-  <h2>Result:</h2>
-  <h2 id:"result"></h2>
-  <button class:"choices" id="rock">Rock</button>
-  <button class:"choices" id:"paper">paper</button>
-  <button class:"choices" id="scissors">scissors</button>
-  <script src="app.js"></script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="text-center">
+    <h1 class="text-center" style="padding: 30px; margin-bottom: 0px;">ROCK-PAPER-SCISSORS<br /></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Your choice:</h2>
+        </div>
+        <div class="col">
+          <h3>Result:</h3>
+        </div>
+        <div class="col">
+          <h2>Computer choice:</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><img id="user-choice" src="images/question.png" /></div>
+        <div class="col">
+          <h1 id="result"></h1>
+        </div>
+        <div class="col"><img id="computer-choice" src="images/question.png" /></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Choices:</h3>
+      </div>
+    </div>
+    <div class="btn-group" role="group">
+      <button class="choices btn btn-dark border rounded" id="rock" data-bs-hover-animate="pulse" type="button" style="margin: 8px; width: 120px; min-height: auto; max-height: auto;">ROCK</button>
+      <button class="choices btn btn-dark border rounded" id="paper" data-bs-hover-animate="pulse" type="button" style="margin: 7px; width: 120px; min-height: auto; max-height: auto;">PAPER</button
+      ><button class="choices btn btn-dark border rounded" id="scissors" data-bs-hover-animate="pulse" type="button" style="margin: 8px; width: 120px; min-height: auto; max-height: auto;">
+        SCISSORS
+      </button>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

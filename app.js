@@ -1,26 +1,35 @@
+/*
+Things to do:
+- Generate question mark picture before result picture show up.
+- To have a restart button
+*/
+
 let userChosen;
-let computerChosen = generateComputerChoice();
-let result = results();
+let computerChosen;
+let result;
 const displayResult = document.getElementById("result");
 const computerChoice = document.getElementById("computer-choice");
 const userChoice = document.getElementById("user-choice");
 const possibleChoices = document.querySelectorAll(".choices");
 
-const randomNumber = Math.round(Math.random() * (3));
+const randomNumber = Math.round(Math.random() * 3);
 
 //Get user choice
-possibleChoices.forEach((possibleChoice) => {
+possibleChoices.forEach((possibleChoice) =>
   possibleChoice.addEventListener("click", (element) => {
     userChosen = element.target.id;
     generateComputerChoice();
     results();
-    userChoice.innerHTML = userChosen;
-    computerChoice.innerHTML = computerChosen;
-    displayResult.innerHTML = result;
-  });
-});
+    userChoice.src = chosenPictures(userChosen);
+    computerChoice.src = chosenPictures(computerChosen);
+    displayResult.innerText = result;
+  })
+);
 
-//Get random computer choice
+function chosenPictures(choice) {
+  return `images/${choice}.png`;
+}
+
 function generateComputerChoice() {
   if (randomNumber === 1) {
     return (computerChosen = "rock");
