@@ -10,13 +10,25 @@ const randomNumber = Math.ceil(Math.random() * 3);
 
 //Get user choice
 possibleChoices.forEach((possibleChoice) =>
-  possibleChoice.addEventListener("click", (element) => {
+  possibleChoice.addEventListener("click", function response(element) {
     userChosen = element.target.id;
     generateComputerChoice();
     results();
     userChoice.src = chosenPicture(userChosen);
+    userChoice.alt = chosenPicture(userChosen);
     computerChoice.src = chosenPicture(computerChosen);
+    computerChoice.alt = chosenPicture(computerChosen);
     displayResult.innerText = result;
+    if (userChosen === "rock") {
+      document.getElementById("paper").style.visibility = "hidden";
+      document.getElementById("scissors").style.visibility = "hidden";
+    } else if (userChosen === "paper") {
+      document.getElementById("rock").style.visibility = "hidden";
+      document.getElementById("scissors").style.visibility = "hidden";
+    } else if (userChosen === "scissors") {
+      document.getElementById("rock").style.visibility = "hidden";
+      document.getElementById("paper").style.visibility = "hidden";
+    }
   })
 );
 
